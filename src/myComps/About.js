@@ -315,7 +315,7 @@ const About = () => {
             <p className="text-secondary mx-auto mb-4" style={{ maxWidth: '600px' }}>
               Schedule a focused discovery session with our senior architects in Gurugram or virtually.
             </p>
-            <a href="/contact" className="btn-hero-primary d-inline-flex align-items-center gap-2">
+            <a href="#contact" className="btn-hero-primary d-inline-flex align-items-center gap-2">
               <span>Start the Conversation</span>
               {icons.arrowRight}
             </a>
