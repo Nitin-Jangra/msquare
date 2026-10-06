@@ -28,14 +28,14 @@ const Footer = ({ onNavigate }) => {
             >
               <div className="d-flex align-items-center justify-content-start text-start" style={{ minHeight: '50px' }}>
                 <img
-                  src="/assets/msquare-logo.png"
+                  src={`${process.env.PUBLIC_URL}/assets/msquare-logo.png`}
                   alt="M Square Professionals"
                   height="46"
                   className="object-fit-contain d-block me-2"
                   onError={(e) => {
                     if (!e.currentTarget.dataset.retried) {
                       e.currentTarget.dataset.retried = 'true';
-                      e.currentTarget.src = '/msplg.jpeg';
+                      e.currentTarget.src = `${process.env.PUBLIC_URL}/msplg.jpeg`;
                     }
                   }}
                 />

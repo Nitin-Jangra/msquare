@@ -51,14 +51,14 @@ const Header = ({ activePage = 'home', onNavigate, theme, toggleTheme }) => {
         >
           <div className="d-flex align-items-center justify-content-center" style={{ minHeight: '52px' }}>
             <img
-              src="/assets/msquare-logo.png"
+              src={`${process.env.PUBLIC_URL}/assets/msquare-logo.png`}
               alt="M Square Professionals"
               height="48"
               className="object-fit-contain d-block"
               onError={(e) => {
                 if (!e.currentTarget.dataset.retried) {
                   e.currentTarget.dataset.retried = 'true';
-                  e.currentTarget.src = '/msplg.jpeg';
+                  e.currentTarget.src = `${process.env.PUBLIC_URL}/msplg.jpeg`;
                 } else {
                   e.currentTarget.style.display = 'none';
                   const fallbackText = e.currentTarget.nextElementSibling;
