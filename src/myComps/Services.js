@@ -430,7 +430,7 @@ const Services = () => {
               We evaluate your current marketing, tech stack, and automation bottlenecks to craft a bespoke 90-day deployment plan.
             </p>
             <div className="d-flex justify-content-center gap-3 flex-wrap">
-              <a href="/contact" className="btn-hero-primary">
+              <a href="#contact" className="btn-hero-primary">
                 Book a Strategy Consultation
                 {icons.arrowRight}
               </a>
