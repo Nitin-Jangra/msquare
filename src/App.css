@@ -6,12 +6,96 @@
   min-height: 100vh;
 }
 
-/* Floating WhatsApp Action */
-.whatsapp-float-btn {
+/* Floating Contact & Magnetic Actions */
+.buzz-floating-actions {
   position: fixed;
   bottom: 28px;
   right: 28px;
   z-index: 1050;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  gap: 0.85rem;
+}
+
+/* Buzzworthy-style Circular Magnetic CTA */
+.buzz-magnetic-cta {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1.5px solid var(--brand-orange);
+  color: var(--brand-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  position: relative;
+  box-shadow: var(--shadow-orange), var(--card-shadow);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease,
+              background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.buzz-magnetic-cta:hover {
+  transform: translateY(-4px) scale(1.08);
+  background: linear-gradient(135deg, var(--brand-orange), var(--brand-orange-hover));
+  color: #ffffff;
+  box-shadow: 0 10px 28px rgba(var(--brand-orange-rgb), 0.55);
+}
+
+.buzz-cta-spin-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px dashed rgba(var(--brand-orange-rgb), 0.5);
+  animation: buzzSpinRing 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes buzzSpinRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.buzz-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+}
+
+.buzz-magnetic-cta:hover .buzz-cta-inner {
+  transform: scale(1.15) rotate(-6deg);
+}
+
+.buzz-cta-tooltip {
+  position: absolute;
+  right: 68px;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--card-shadow);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.buzz-magnetic-cta:hover .buzz-cta-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Floating WhatsApp Action */
+.whatsapp-float-btn {
   display: flex;
   align-items: center;
   gap: 0.75rem;

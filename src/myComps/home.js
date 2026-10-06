@@ -501,6 +501,71 @@ const Home = ({ onNavigate }) => {
       <SectionDivider accent="blue" />
 
       {/* ══════════════════════════════════
+          BUZZWORTHY-STYLE ARCHITECTURAL RULES & ATTITUDE STACK
+      ══════════════════════════════════ */}
+      <section className="buzz-principles-section py-5" aria-label="Our execution principles">
+        <Container>
+          <div className="text-center mb-5">
+            <span className="badge-eyebrow mb-2">OUR ATTITUDE &amp; DISCIPLINE</span>
+            <h2 className="section-title">The M Square Operating Principles</h2>
+            <p className="section-subtitle">
+              How we approach every system architecture, marketing line item, and line of code.
+            </p>
+          </div>
+
+          <div className="buzz-principles-stack">
+            {[
+              {
+                rule: 'RULE NO. 01',
+                title: 'DISCIPLINE & ATTRIBUTION',
+                body: 'We eliminate vanity metrics. Every campaign dollar and API integration is engineered with end-to-end multi-touch attribution directly linked to verified sales pipeline.',
+                tag: 'Precision',
+                accent: 'orange'
+              },
+              {
+                rule: 'RULE NO. 02',
+                title: 'ONE CONNECTED ECOSYSTEM',
+                body: 'Disjointed agencies create expensive communication gaps and broken funnels. We architect marketing, CRM databases, and custom software into one unified growth engine.',
+                tag: 'Integration',
+                accent: 'blue'
+              },
+              {
+                rule: 'RULE NO. 03',
+                title: 'CODE-GRADE RELIABILITY',
+                body: 'We treat marketing automation with software engineering rigor. Fault-tolerant webhooks, sub-second landing pages, and bulletproof database schemas that scale without breaking.',
+                tag: 'Engineering',
+                accent: 'purple'
+              },
+              {
+                rule: 'RULE NO. 04',
+                title: 'RELENTLESS REVENUE FOCUS',
+                body: 'Our success is tied to your top-line revenue expansion and operational efficiency. We iterate continuously in rapid bi-weekly growth sprints until your CAC drops and velocity peaks.',
+                tag: 'Outcomes',
+                accent: 'orange'
+              }
+            ].map((principle, index) => (
+              <div
+                key={principle.rule}
+                className={`buzz-principle-card accent-${principle.accent}`}
+                style={{ '--stack-index': index }}
+              >
+                <div className="buzz-principle-top">
+                  <span className="buzz-rule-number">{principle.rule}</span>
+                  <span className="buzz-rule-tag">{principle.tag}</span>
+                </div>
+                <h3 className="buzz-principle-title">{principle.title}</h3>
+                <p className="buzz-principle-body">{principle.body}</p>
+                <div className="buzz-principle-bar"></div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── Geometric Section Divider ── */}
+      <SectionDivider accent="orange" />
+
+      {/* ══════════════════════════════════
           CTA BANNER SECTION
       ══════════════════════════════════ */}
       <section className="cta-section" aria-label="Call to action">

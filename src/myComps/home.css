@@ -732,3 +732,122 @@
   line-height: 1.45;
 }
 
+/* ── 4. Buzzworthy-Inspired Principles & Attitude Stack ── */
+.buzz-principles-section {
+  position: relative;
+  background-color: var(--bg-primary);
+}
+
+.buzz-principles-stack {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.buzz-principle-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 2rem 1.75rem;
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.buzz-principle-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.buzz-principle-card.accent-orange:hover {
+  border-color: var(--brand-orange);
+  box-shadow: var(--shadow-orange), var(--card-shadow-hover);
+}
+
+.buzz-principle-card.accent-blue:hover {
+  border-color: var(--brand-blue);
+  box-shadow: var(--shadow-blue), var(--card-shadow-hover);
+}
+
+.buzz-principle-card.accent-purple:hover {
+  border-color: #a855f7;
+  box-shadow: var(--shadow-purple), var(--card-shadow-hover);
+}
+
+.buzz-principle-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.buzz-rule-number {
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: var(--brand-orange);
+  text-transform: uppercase;
+}
+
+.buzz-principle-card.accent-blue .buzz-rule-number {
+  color: var(--brand-blue);
+}
+
+.buzz-principle-card.accent-purple .buzz-rule-number {
+  color: #a855f7;
+}
+
+.buzz-rule-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+}
+
+.buzz-principle-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.buzz-principle-body {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.buzz-principle-bar {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--border-subtle), transparent);
+  transition: background 0.3s ease;
+}
+
+.buzz-principle-card.accent-orange:hover .buzz-principle-bar {
+  background: linear-gradient(90deg, var(--brand-orange), transparent);
+}
+
+.buzz-principle-card.accent-blue:hover .buzz-principle-bar {
+  background: linear-gradient(90deg, var(--brand-blue), transparent);
+}
+
+.buzz-principle-card.accent-purple:hover .buzz-principle-bar {
+  background: linear-gradient(90deg, #a855f7, transparent);
+}
+
+
