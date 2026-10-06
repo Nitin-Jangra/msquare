@@ -327,7 +327,7 @@ const CaseStudies = () => {
             <p className="text-secondary mx-auto mb-4" style={{ maxWidth: '640px' }}>
               Join 100+ growing brands that have scaled their revenue and automated operations with M Square Professionals.
             </p>
-            <a href="/contact" className="btn-hero-primary d-inline-flex align-items-center gap-2">
+            <a href="#contact" className="btn-hero-primary d-inline-flex align-items-center gap-2">
               <span>Book Your Strategy Call</span>
               {icons.arrowRight}
             </a>
