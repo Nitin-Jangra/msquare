@@ -1,13 +1,135 @@
-body {
+/* ========================================================
+   Design Tokens & CSS Variables for Light / Dark Mode
+   With Tinted Multi-Color Box Shadows in Light Theme
+   ======================================================== */
+
+:root,
+[data-bs-theme="dark"],
+body[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Backgrounds */
+  --bg-primary: #0c0c10;
+  --bg-secondary: #13131a;
+  --bg-tertiary: #1a1a24;
+  --bg-card: rgba(19, 19, 26, 0.92);
+  --bg-card-hover: rgba(28, 28, 38, 0.98);
+  --bg-nav: rgba(12, 12, 16, 0.88);
+  --bg-input: #171722;
+
+  /* Text colors */
+  --text-primary: #f4f4f7;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  /* Brand Accents */
+  --brand-orange: #ff6b00;
+  --brand-orange-hover: #ff7d1a;
+  --brand-orange-rgb: 255, 107, 0;
+  --brand-blue: #3b82f6;
+  --brand-blue-hover: #60a5fa;
+  --brand-blue-rgb: 59, 130, 246;
+
+  /* Shadows in Dark Theme */
+  --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5), 0 2px 6px -1px rgba(0, 0, 0, 0.4);
+  --card-shadow-hover: 0 12px 32px -4px rgba(0, 0, 0, 0.65), 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+  --nav-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+  /* Tinted Colored Shadows */
+  --shadow-orange: 0 6px 20px -2px rgba(255, 107, 0, 0.22);
+  --shadow-blue: 0 6px 20px -2px rgba(59, 130, 246, 0.22);
+  --shadow-purple: 0 6px 20px -2px rgba(139, 92, 246, 0.22);
+  --shadow-cyan: 0 6px 20px -2px rgba(6, 182, 212, 0.22);
+}
+
+[data-bs-theme="light"],
+body[data-theme="light"] {
+  color-scheme: light;
+
+  /* Backgrounds - Refined clean aesthetic with subtle warm undertone */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-tertiary: #e2e8f0;
+  --bg-card: #ffffff;
+  --bg-card-hover: #ffffff;
+  --bg-nav: rgba(255, 255, 255, 0.92);
+  --bg-input: #f8fafc;
+
+  /* Text colors */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(226, 232, 240, 0.85);
+  --border-strong: rgba(203, 213, 225, 0.9);
+
+  /* Brand Accents */
+  --brand-orange: #f97316;
+  --brand-orange-hover: #ea580c;
+  --brand-orange-rgb: 249, 115, 22;
+  --brand-blue: #2563eb;
+  --brand-blue-hover: #1d4ed8;
+  --brand-blue-rgb: 37, 99, 235;
+
+  /* ══════════════════════════════════════════════════════════
+     DISTINCT TINTED MULTI-COLOR BOX SHADOWS IN LIGHT THEME
+     ══════════════════════════════════════════════════════════ */
+  --card-shadow: 0 10px 25px -4px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+  --card-shadow-hover: 0 18px 36px -6px rgba(15, 23, 42, 0.12), 0 8px 16px -3px rgba(15, 23, 42, 0.06);
+  --nav-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+
+  /* Colored Shadows with soft ambient glow */
+  --shadow-orange: 0 10px 26px -3px rgba(249, 115, 22, 0.16), 0 4px 12px -2px rgba(249, 115, 22, 0.08);
+  --shadow-blue: 0 10px 26px -3px rgba(37, 99, 235, 0.15), 0 4px 12px -2px rgba(37, 99, 235, 0.08);
+  --shadow-purple: 0 10px 26px -3px rgba(147, 51, 234, 0.15), 0 4px 12px -2px rgba(147, 51, 234, 0.08);
+  --shadow-cyan: 0 10px 26px -3px rgba(8, 145, 178, 0.15), 0 4px 12px -2px rgba(8, 145, 178, 0.08);
+}
+
+/* Base Body Setup */
+html, body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
+/* Background floating particles in Light Theme */
+[data-bs-theme="light"] body::before,
+body[data-theme="light"]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(rgba(249, 115, 22, 0.15) 1.5px, transparent 1.5px),
+    radial-gradient(rgba(37, 99, 235, 0.12) 1.5px, transparent 1.5px);
+  background-size: 60px 60px, 80px 80px;
+  background-position: 0 0, 30px 40px;
+  z-index: 0;
+  opacity: 0.7;
+}
+
+/* Prevent unwanted word clipping across all elements */
+p, span, h1, h2, h3, h4, h5, h6, li, a {
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+/* Smooth code font */
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

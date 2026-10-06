@@ -1,0 +1,179 @@
+/* Insights Page Styles - Light & Dark Theme Friendly */
+
+.insights-page {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+.insights-hero {
+  padding: 5rem 0 3.5rem;
+  background: radial-gradient(circle at 50% 0%, rgba(var(--brand-orange-rgb), 0.08) 0%, transparent 65%);
+}
+
+.insights-hero-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+.insights-hero-title span {
+  background: linear-gradient(135deg, var(--brand-orange), var(--brand-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.insights-hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+.tag-filter-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.tag-filter-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.tag-filter-btn.active {
+  background: var(--brand-orange);
+  color: #ffffff;
+  border-color: var(--brand-orange);
+  box-shadow: 0 4px 12px rgba(var(--brand-orange-rgb), 0.35);
+}
+
+/* Featured Guide Card */
+.featured-guide-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+.featured-pill {
+  background: rgba(var(--brand-orange-rgb), 0.12);
+  color: var(--brand-orange);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   REDESIGNED ARTICLES CARDS — FIXES OVERFLOW ACROSS ALL DEVICES
+   ══════════════════════════════════════════════════════════ */
+.article-card {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 20px !important;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+  width: 100%;
+}
+
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--border-strong) !important;
+}
+
+.article-preview-mockup {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bg-secondary);
+}
+
+.article-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+  letter-spacing: 0.05em;
+  background: rgba(var(--brand-blue-rgb), 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.article-meta {
+  white-space: nowrap;
+}
+
+.article-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--text-primary);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.article-summary {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  overflow-wrap: break-word;
+}
+
+.article-read-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--brand-orange);
+  text-decoration: none;
+  transition: gap 0.2s ease, color 0.2s ease;
+  margin-top: auto;
+}
+
+.article-read-link:hover {
+  gap: 0.75rem;
+  color: var(--brand-orange-hover);
+}
+
+/* Accordion customization */
+.msquare-accordion .accordion-item {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-subtle) !important;
+  box-shadow: var(--card-shadow);
+}
+
+.msquare-accordion .accordion-button {
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  font-size: 1.02rem;
+  padding: 1.25rem 1.5rem;
+  box-shadow: none !important;
+}
+
+.msquare-accordion .accordion-button:not(.collapsed) {
+  color: var(--brand-orange) !important;
+  background-color: var(--bg-secondary) !important;
+}
+
+.msquare-accordion .accordion-body {
+  background: var(--bg-card) !important;
+  padding: 1.25rem 1.5rem;
+  line-height: 1.65;
+  font-size: 0.95rem;
+}

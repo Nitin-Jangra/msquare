@@ -1,0 +1,299 @@
+/* About Page Styling - Light and Dark Mode */
+
+.about-page {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+.about-hero {
+  padding: 5rem 0 3.5rem;
+  background: radial-gradient(circle at 50% 0%, rgba(var(--brand-orange-rgb), 0.08) 0%, transparent 65%);
+}
+
+.about-hero-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+.about-hero-title span {
+  background: linear-gradient(135deg, var(--brand-orange), var(--brand-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+.about-metrics-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--card-shadow);
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.metric-huge {
+  font-size: clamp(2rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  display: block;
+  line-height: 1;
+}
+
+.metric-huge.orange { color: var(--brand-orange); }
+.metric-huge.blue { color: var(--brand-blue); }
+
+.metric-caption {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.35rem;
+  display: block;
+}
+
+.step-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
+}
+
+.step-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand-orange);
+}
+
+.step-num {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--brand-orange);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.bg-secondary-alt {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.why-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
+}
+
+.why-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand-blue);
+}
+
+.why-icon-bubble {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(var(--brand-orange-rgb), 0.12);
+  color: var(--brand-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════════════════
+   EXACT REPLICA TIMELINE:
+   CONTINUOUS VERTICAL ORANGE LINE + CIRCULAR YEAR NODES
+   ══════════════════════════════════════════════════════════ */
+.timeline-clean-track {
+  max-width: 880px;
+  position: relative;
+  margin-top: 2rem;
+  padding: 1rem 0;
+}
+
+/* Continuous solid vertical orange line connecting through all nodes */
+.timeline-continuous-spine {
+  position: absolute;
+  top: 40px;
+  bottom: 40px;
+  left: 48px; /* Perfectly centers along the 96px width circle */
+  width: 2px;
+  background-color: #f97316;
+  z-index: 1;
+}
+
+@media (max-width: 576px) {
+  .timeline-continuous-spine {
+    left: 36px;
+  }
+}
+
+.timeline-row-item {
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-node-wrapper {
+  width: 96px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 576px) {
+  .timeline-node-wrapper {
+    width: 72px;
+  }
+}
+
+/* Concentric circular badge matching the reference screenshot */
+.timeline-outer-ring {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(249, 115, 22, 0.45);
+  background-color: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(249, 115, 22, 0.15);
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* Inner orange ring */
+.timeline-outer-ring::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  border: 2px solid #f97316;
+  background: transparent;
+}
+
+.timeline-row-item:hover .timeline-outer-ring {
+  transform: scale(1.05);
+  box-shadow: 0 6px 22px rgba(249, 115, 22, 0.3);
+  border-color: #f97316;
+}
+
+@media (max-width: 576px) {
+  .timeline-outer-ring {
+    width: 68px;
+    height: 68px;
+  }
+}
+
+.timeline-year-text {
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ea580c; /* Deep orange text as shown in screenshot */
+  letter-spacing: 0.02em;
+  position: relative;
+  z-index: 3;
+}
+
+[data-bs-theme="dark"] .timeline-year-text {
+  color: #fb923c;
+}
+
+/* Timeline Content Card */
+.timeline-content-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.timeline-row-item:hover .timeline-content-card {
+  border-color: var(--border-strong);
+  box-shadow: var(--card-shadow-hover);
+  transform: translateX(4px);
+}
+
+.timeline-card-heading {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #1e3a8a; /* Deep bold blue title in light mode */
+  letter-spacing: -0.01em;
+}
+
+[data-bs-theme="dark"] .timeline-card-heading {
+  color: #60a5fa;
+}
+
+.timeline-card-desc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+/* Industry sector cards */
+.industry-detail-card {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 20px !important;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease !important;
+}
+
+.industry-detail-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong) !important;
+}
+
+.industry-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand-orange);
+  letter-spacing: 0.05em;
+  background: rgba(var(--brand-orange-rgb), 0.1);
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+}
+
+.industry-icon-wrapper {
+  color: var(--brand-blue);
+}
+
+.industry-points-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.industry-points-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+  line-height: 1.45;
+  overflow-wrap: break-word;
+}
+
+.point-check {
+  color: #22c55e;
+  font-weight: bold;
+  flex-shrink: 0;
+}
