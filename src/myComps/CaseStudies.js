@@ -4,9 +4,16 @@ import icons from './Icons';
 import PlaceholderImage from './PlaceholderImage';
 import './caseStudies.css';
 
-const CaseStudies = () => {
+const CaseStudies = ({ onNavigate }) => {
   const [selectedCase, setSelectedCase] = useState(null);
   const [activeFilter, setActiveFilter] = useState('all');
+
+  const handleNavClick = (e, pageId) => {
+    e.preventDefault();
+    if (onNavigate) {
+      onNavigate(pageId);
+    }
+  };
 
   const cases = [
     {
@@ -231,7 +238,11 @@ const CaseStudies = () => {
                       >
                         View Full Execution Details {icons.arrowRight}
                       </Button>
-                      <a href="/contact" className="link-similar-results">
+                      <a
+                        href="#contact"
+                        onClick={(e) => handleNavClick(e, 'contact')}
+                        className="link-similar-results"
+                      >
                         Achieve similar results
                       </a>
                     </div>
@@ -310,7 +321,11 @@ const CaseStudies = () => {
               Close
             </Button>
             <Button
-              href="/contact"
+              href="#contact"
+              onClick={(e) => {
+                setSelectedCase(null);
+                handleNavClick(e, 'contact');
+              }}
               className="btn-start-project text-white"
             >
               Start Your Project With Us
@@ -327,7 +342,11 @@ const CaseStudies = () => {
             <p className="text-secondary mx-auto mb-4" style={{ maxWidth: '640px' }}>
               Join 100+ growing brands that have scaled their revenue and automated operations with M Square Professionals.
             </p>
-            <a href="#contact" className="btn-hero-primary d-inline-flex align-items-center gap-2">
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, 'contact')}
+              className="btn-hero-primary d-inline-flex align-items-center gap-2"
+            >
               <span>Book Your Strategy Call</span>
               {icons.arrowRight}
             </a>

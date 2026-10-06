@@ -4,8 +4,15 @@ import icons from './Icons';
 import PlaceholderImage from './PlaceholderImage';
 import './insights.css';
 
-const Insights = () => {
+const Insights = ({ onNavigate }) => {
   const [selectedTag, setSelectedTag] = useState('All');
+
+  const handleNavClick = (e, pageId) => {
+    e.preventDefault();
+    if (onNavigate) {
+      onNavigate(pageId);
+    }
+  };
 
   const articles = [
     {
@@ -121,7 +128,11 @@ const Insights = () => {
                   A 38-page practical blueprint detailing how modern high-growth companies connect Google/Meta media buying directly with HubSpot/Salesforce automated workflows and custom React client portals.
                 </p>
                 <div className="d-flex align-items-center gap-3 flex-wrap">
-                  <a href="/contact" className="btn-hero-primary">
+                  <a
+                    href="#contact"
+                    onClick={(e) => handleNavClick(e, 'contact')}
+                    className="btn-hero-primary"
+                  >
                     Request Free Guide Copy {icons.arrowRight}
                   </a>
                   <span className="text-muted small">No spam. Sent instantly to your inbox.</span>
@@ -173,7 +184,11 @@ const Insights = () => {
                     <h3 className="article-title fs-5 fw-bold mb-2">{art.title}</h3>
                     <p className="article-summary text-secondary small mb-4">{art.summary}</p>
 
-                    <a href="/contact" className="mt-auto article-read-link">
+                    <a
+                      href="#contact"
+                      onClick={(e) => handleNavClick(e, 'contact')}
+                      className="mt-auto article-read-link"
+                    >
                       <span>Read Full Guide</span>
                       {icons.arrowRight}
                     </a>

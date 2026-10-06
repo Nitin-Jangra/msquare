@@ -4,9 +4,16 @@ import icons from './Icons';
 import PlaceholderImage from './PlaceholderImage';
 import './services.css';
 
-const Services = () => {
+const Services = ({ onNavigate }) => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+
+  const handleNavClick = (e, pageId) => {
+    e.preventDefault();
+    if (onNavigate) {
+      onNavigate(pageId);
+    }
+  };
 
   const pillars = [
     {
@@ -356,7 +363,11 @@ const Services = () => {
                               ))}
                             </ul>
 
-                            <a href="/contact" className="service-inquire-link mt-4">
+                            <a
+                              href="#contact"
+                              onClick={(e) => handleNavClick(e, 'contact')}
+                              className="service-inquire-link mt-4"
+                            >
                               <span>Inquire about {service.title}</span>
                               {icons.arrowRight}
                             </a>
@@ -430,11 +441,19 @@ const Services = () => {
               We evaluate your current marketing, tech stack, and automation bottlenecks to craft a bespoke 90-day deployment plan.
             </p>
             <div className="d-flex justify-content-center gap-3 flex-wrap">
-              <a href="#contact" className="btn-hero-primary">
+              <a
+                href="#contact"
+                onClick={(e) => handleNavClick(e, 'contact')}
+                className="btn-hero-primary"
+              >
                 Book a Strategy Consultation
                 {icons.arrowRight}
               </a>
-              <a href="/case-studies" className="btn-hero-secondary">
+              <a
+                href="#case-studies"
+                onClick={(e) => handleNavClick(e, 'case-studies')}
+                className="btn-hero-secondary"
+              >
                 View Case Studies
               </a>
             </div>

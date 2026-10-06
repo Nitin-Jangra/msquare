@@ -4,7 +4,14 @@ import icons from './Icons';
 import PlaceholderImage from './PlaceholderImage';
 import './about.css';
 
-const About = () => {
+const About = ({ onNavigate }) => {
+  const handleNavClick = (e, pageId) => {
+    e.preventDefault();
+    if (onNavigate) {
+      onNavigate(pageId);
+    }
+  };
+
   const values = [
     {
       title: 'One Partner. One Ecosystem.',
@@ -315,7 +322,11 @@ const About = () => {
             <p className="text-secondary mx-auto mb-4" style={{ maxWidth: '600px' }}>
               Schedule a focused discovery session with our senior architects in Gurugram or virtually.
             </p>
-            <a href="#contact" className="btn-hero-primary d-inline-flex align-items-center gap-2">
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, 'contact')}
+              className="btn-hero-primary d-inline-flex align-items-center gap-2"
+            >
               <span>Start the Conversation</span>
               {icons.arrowRight}
             </a>

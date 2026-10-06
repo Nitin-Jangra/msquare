@@ -11,13 +11,13 @@ import Contact from './myComps/Contact';
 import Legal from './myComps/Legal';
 
 function App() {
-  // Theme state: dark / light
+  // Theme state: dark / light (defaults to light)
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme) return savedTheme;
     }
-    return 'dark';
+    return 'light';
   });
 
   // Active page state for single-page component routing
