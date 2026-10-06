@@ -70,7 +70,7 @@ const Header = ({ activePage = 'home', onNavigate, theme, toggleTheme }) => {
               className="fw-bold fs-4 msquare-brand-text ms-2"
               style={{ letterSpacing: '-0.5px' }}
             >
-              M Square
+              M Square Professionals
             </span>
           </div>
         </Navbar.Brand>

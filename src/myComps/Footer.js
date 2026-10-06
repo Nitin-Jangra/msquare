@@ -40,7 +40,7 @@ const Footer = ({ onNavigate }) => {
                   }}
                 />
                 <span className="fw-bold fs-4 footer-brand-text">
-                  M Square
+                  M Square Professionals
                 </span>
               </div>
             </a>
