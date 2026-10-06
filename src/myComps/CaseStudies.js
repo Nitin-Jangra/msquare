@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Card, Modal, Button } from 'react-bootstrap';
 import icons from './Icons';
 import PlaceholderImage from './PlaceholderImage';
+import SectionDivider from './SectionDivider';
 import './caseStudies.css';
 
 const CaseStudies = ({ onNavigate }) => {
@@ -333,6 +334,9 @@ const CaseStudies = ({ onNavigate }) => {
           </Modal.Footer>
         </Modal>
       )}
+
+      {/* ── Geometric Section Divider ── */}
+      <SectionDivider accent="orange" />
 
       {/* ── Ready to be next success story CTA ── */}
       <section className="case-cta py-5 text-center">

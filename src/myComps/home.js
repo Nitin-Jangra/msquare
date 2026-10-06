@@ -2,10 +2,29 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import icons from './Icons';
 import PlaceholderImage from './PlaceholderImage';
+import SectionDivider from './SectionDivider';
 import './home.css';
+
+const USP_LIST = [
+  'Turn Vision into Quantifiable Pipeline',
+  'Connect Media, CRM & Custom Tech',
+  'Scale Predictable Business Revenue',
+  'Eliminate Fragile Agency Silos',
+  'Automate Client Journeys & Follow-Ups'
+];
 
 const Home = ({ onNavigate }) => {
   const [scrollPct, setScrollPct] = useState(0);
+  const [uspIndex, setUspIndex] = useState(0);
+  const [hoveredClient, setHoveredClient] = useState(null);
+
+  // Rotating Buzzworthy-style USP ticker
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setUspIndex((prev) => (prev + 1) % USP_LIST.length);
+    }, 2800);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -52,18 +71,32 @@ const Home = ({ onNavigate }) => {
         <Container className="hero-content">
           <Row className="justify-content-center">
             <Col xs={12} lg={10} xl={9} className="text-center">
-              {/* Badge with left-to-right infinite orange glow ease-in animation */}
-              <div className="mb-4 d-inline-block">
+              {/* Badge with left-to-right infinite orange glow */}
+              <div className="mb-3 d-inline-block">
                 <span className="badge-premium-glowing">
                   <span className="badge-dot" aria-hidden="true" />
                   <span className="badge-shimmer-text">Business Growth Infrastructure Company</span>
                 </span>
               </div>
 
-              {/* Headline */}
-              <h1 className="hero-title">
-                Building Growth Infrastructure
-                <span className="hero-title-gradient d-block mt-2">for Modern Businesses.</span>
+              {/* Buzzworthy-style Kinetic Rotating Tagline / USP pill */}
+              <div className="buzz-usp-bar mb-4">
+                <span className="buzz-usp-prefix">
+                  <span>We</span>
+                  <span className="buzz-usp-dots">
+                    <i className="buzz-dot"></i>
+                    <i className="buzz-dot"></i>
+                  </span>
+                </span>
+                <div className="buzz-usp-viewport" key={uspIndex}>
+                  <p className="buzz-usp-text">{USP_LIST[uspIndex]}</p>
+                </div>
+              </div>
+
+              {/* Headline with kinetic split lines */}
+              <h1 className="hero-title buzz-kinetic-title">
+                <span className="buzz-title-line buzz-line-1">Building Growth Infrastructure</span>
+                <span className="hero-title-gradient d-block mt-1 buzz-title-line buzz-line-2">for Modern Businesses.</span>
               </h1>
 
               {/* Subheadline */}
@@ -127,6 +160,9 @@ const Home = ({ onNavigate }) => {
           </Row>
         </Container>
       </section>
+
+      {/* ── Geometric Section Divider ── */}
+      <SectionDivider accent="orange" />
 
       {/* ══════════════════════════════════
           ECOSYSTEM SERVICES SECTION
@@ -304,6 +340,84 @@ const Home = ({ onNavigate }) => {
         </Container>
       </section>
 
+      {/* ── Geometric Section Divider ── */}
+      <SectionDivider accent="blue" />
+
+      {/* ══════════════════════════════════
+          BUZZWORTHY-STYLE INTERACTIVE CLIENT IMPACT STRIP
+      ══════════════════════════════════ */}
+      <section className="buzz-clients-impact-section py-5" aria-label="Client results">
+        <Container>
+          <div className="text-center mb-4">
+            <span className="badge-eyebrow mb-2">VERIFIED METRICS</span>
+            <h2 className="section-title">Measurable Ecosystem Returns</h2>
+            <p className="section-subtitle">
+              Hover over each client partner to see verified conversion and pipeline KPIs delivered.
+            </p>
+          </div>
+
+          <div className="buzz-client-grid">
+            {[
+              {
+                id: 1,
+                name: 'Nair Retail Brands',
+                category: 'E-Commerce',
+                stat: '4.1x',
+                metric: 'ROAS Delivered',
+                sub: 'Server-side Meta CAPI & UGC system'
+              },
+              {
+                id: 2,
+                name: 'Prestige Living Spaces',
+                category: 'PropTech',
+                stat: '800+',
+                metric: 'MQLs in 60 Days',
+                sub: 'Real-time WhatsApp CRM dispatch'
+              },
+              {
+                id: 3,
+                name: 'CarePoint MedTech',
+                category: 'HealthTech',
+                stat: '-42%',
+                metric: 'Cost Per Acquisition',
+                sub: 'Full-funnel intent qualification'
+              },
+              {
+                id: 4,
+                name: 'Apex Capital Advisors',
+                category: 'FinTech',
+                stat: '280%',
+                metric: 'Inbound Pipeline Growth',
+                sub: 'Automated workflow & portal'
+              }
+            ].map((client) => {
+              const isHovered = hoveredClient === client.id;
+              return (
+                <div
+                  key={client.id}
+                  className={`buzz-client-box ${isHovered ? 'is-active' : ''}`}
+                  onMouseEnter={() => setHoveredClient(client.id)}
+                  onMouseLeave={() => setHoveredClient(null)}
+                >
+                  <div className="buzz-client-badge">{client.category}</div>
+                  <h4 className="buzz-client-name">{client.name}</h4>
+                  
+                  <div className="buzz-client-impact">
+                    <span className="buzz-impact-number">{client.stat}</span>
+                    <span className="buzz-impact-label">{client.metric}</span>
+                  </div>
+                  
+                  <p className="buzz-client-sub">{client.sub}</p>
+                </div>
+              );
+            })}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── Geometric Section Divider ── */}
+      <SectionDivider accent="orange" />
+
       {/* ══════════════════════════════════
           FEATURED CASE STUDIES STRIP
       ══════════════════════════════════ */}
@@ -382,6 +496,9 @@ const Home = ({ onNavigate }) => {
           </Row>
         </Container>
       </section>
+
+      {/* ── Geometric Section Divider ── */}
+      <SectionDivider accent="blue" />
 
       {/* ══════════════════════════════════
           CTA BANNER SECTION

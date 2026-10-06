@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import icons from './Icons';
 import PlaceholderImage from './PlaceholderImage';
+import SectionDivider from './SectionDivider';
 import './about.css';
 
 const About = ({ onNavigate }) => {
@@ -313,6 +314,9 @@ const About = ({ onNavigate }) => {
           </Row>
         </Container>
       </section>
+
+      {/* ── Geometric Section Divider ── */}
+      <SectionDivider accent="orange" />
 
       {/* ── Ready to partner CTA ── */}
       <section className="about-cta py-5 text-center">

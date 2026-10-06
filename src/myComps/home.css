@@ -524,3 +524,211 @@
   box-shadow: 0 8px 32px rgba(0,0,0,0.35);
   transform: translateY(-2px);
 }
+
+/* ══════════════════════════════════════════════════════════
+   BUZZWORTHY-INSPIRED FLOW & MOTION STYLES (PHASE 1 & 2)
+   ══════════════════════════════════════════════════════════ */
+
+/* ── 1. Rotating Kinetic USP Bar ── */
+.buzz-usp-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 0.35rem 1.15rem;
+  border-radius: 999px;
+  box-shadow: var(--card-shadow);
+  max-width: 95%;
+  overflow: hidden;
+  position: relative;
+}
+
+.buzz-usp-prefix {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brand-orange);
+}
+
+.buzz-usp-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.buzz-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--brand-orange);
+  display: inline-block;
+  opacity: 0.85;
+}
+
+.buzz-usp-viewport {
+  overflow: hidden;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.buzz-usp-text {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0;
+  white-space: nowrap;
+  animation: buzzUspSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes buzzUspSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── 2. Kinetic Title Split Entrance ── */
+.buzz-kinetic-title .buzz-title-line {
+  display: inline-block;
+  animation: buzzTitleRise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.buzz-kinetic-title .buzz-line-1 {
+  animation-delay: 0.08s;
+}
+
+.buzz-kinetic-title .buzz-line-2 {
+  animation-delay: 0.22s;
+}
+
+@keyframes buzzTitleRise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── 3. Interactive Client Metrics Strip (Buzzworthy Style) ── */
+.buzz-clients-impact-section {
+  position: relative;
+  background-color: var(--bg-primary);
+}
+
+.buzz-client-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.buzz-client-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--card-shadow);
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.buzz-client-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-orange), var(--brand-blue));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.buzz-client-box:hover,
+.buzz-client-box.is-active {
+  transform: translateY(-6px);
+  border-color: var(--brand-orange);
+  box-shadow: var(--shadow-orange), var(--card-shadow-hover);
+}
+
+.buzz-client-box:hover::before,
+.buzz-client-box.is-active::before {
+  opacity: 1;
+}
+
+.buzz-client-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  background: var(--bg-tertiary);
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+
+.buzz-client-name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.buzz-client-impact {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.85rem;
+}
+
+.buzz-impact-number {
+  font-size: 2.3rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--brand-orange), var(--brand-orange-hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.3rem;
+}
+
+.buzz-client-box:nth-child(even) .buzz-impact-number {
+  background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.buzz-impact-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.buzz-client-sub {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.45;
+}
+
